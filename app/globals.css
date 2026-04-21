@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --page: #f7efe6;
+  --page-strong: #f2e7da;
+  --surface: rgba(255, 251, 247, 0.76);
+  --surface-strong: rgba(255, 248, 240, 0.92);
+  --ink: #2d2418;
+  --muted: #6f5c48;
+  --gold: #8d6d2c;
+  --gold-soft: #d9c2a2;
+  --olive: #abb36f;
+  --green: #1f7a45;
+  --lavender: #9b94b0;
+  --rose: #d4a59a;
+  --ocean: #8a9ba8;
+  --tea: #c2a991;
+}
+
+html {
+  background:
+    radial-gradient(circle at top, rgba(232, 204, 162, 0.28), transparent 32%),
+    linear-gradient(180deg, #fbf6f0 0%, var(--page) 32%, #f5ecdf 100%);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+}
+
+::selection {
+  background: rgba(141, 109, 44, 0.18);
+  color: var(--ink);
+}
+
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-heading {
+  font-family: var(--font-heading), serif;
+}
+
+.premium-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 238, 0.68));
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 24px 60px rgba(71, 50, 23, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.premium-card-dark {
+  background:
+    radial-gradient(circle at top, rgba(226, 198, 151, 0.18), transparent 42%),
+    linear-gradient(145deg, #30251c 0%, #1d1711 100%);
+  box-shadow: 0 28px 80px rgba(31, 20, 12, 0.3);
+}
+
+.soft-shadow {
+  box-shadow: 0 16px 44px rgba(71, 50, 23, 0.12);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.section-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 1rem);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-float {
+    animation: float 10s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 12s ease-in-out 1.5s infinite;
+  }
+
+  .animate-rise {
+    animation: rise 0.8s ease-out both;
+  }
+}
+
