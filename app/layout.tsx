@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   description:
     "Velas aromáticas de cera de abelha, feitas à mão e totalmente personalizadas para elevar momentos, presentear com elegância e criar atmosferas únicas.",
   applicationName: "ALVEA",
+  icons: {
+    icon: "/alvea-icone.ico",
+    shortcut: "/alvea-icone.ico",
+    apple: "/alvea-icone.ico",
+  },
   keywords: [
     "velas aromáticas",
     "cera de abelha",
@@ -50,4 +55,3 @@ export default function RootLayout({
     </html>
   );
 }
-
