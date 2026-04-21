@@ -19,20 +19,27 @@ import {
 } from "../../lib/alvea-content";
 import candlePhoto from "../../assets/images/vela.png";
 import topBackground from "../../assets/images/fundo-safado.png";
+import finalBackground from "../../assets/images/fundo-safado2.png";
 
 const containerClass = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
-const topSectionBackgroundStyle = {
-  backgroundImage: `linear-gradient(180deg, rgba(251,246,240,0.48) 0%, rgba(247,239,230,0.58) 18%, rgba(247,239,230,0.72) 42%, rgba(247,239,230,0.92) 78%, #f7efe6 100%), url(${topBackground.src})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center top",
-  backgroundRepeat: "no-repeat",
-} as const;
 
 export function LandingPage() {
   return (
     <main className="relative overflow-x-clip pb-28 md:pb-0">
       <BackgroundGlow />
-      <div className="relative" style={topSectionBackgroundStyle}>
+      <div className="relative overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
+          <Image
+            src={topBackground}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[62%_top] opacity-[0.92] saturate-[1.08] sm:object-[55%_top] sm:opacity-80 lg:object-center lg:opacity-68"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,246,240,0.08)_0%,rgba(247,239,230,0.03)_14%,rgba(247,239,230,0.12)_32%,rgba(247,239,230,0.42)_56%,rgba(247,239,230,0.84)_80%,#f7efe6_100%)] sm:bg-[linear-gradient(180deg,rgba(251,246,240,0.22)_0%,rgba(247,239,230,0.12)_18%,rgba(247,239,230,0.24)_40%,rgba(247,239,230,0.62)_68%,#f7efe6_100%)] lg:bg-[linear-gradient(180deg,rgba(251,246,240,0.38)_0%,rgba(247,239,230,0.26)_18%,rgba(247,239,230,0.34)_40%,rgba(247,239,230,0.68)_68%,#f7efe6_100%)]" />
+        </div>
+
         <header className="relative z-20 pt-5 sm:pt-6">
           <div className={`${containerClass} flex items-center justify-between gap-4`}>
             <a
@@ -133,12 +140,14 @@ export function LandingPage() {
 
                 <div className="mt-8 grid gap-6">
                   <div className="relative overflow-hidden rounded-[1.8rem] border border-white/70 bg-[#f8efe6]">
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,245,0.12),rgba(45,36,24,0.12))]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,245,0.03),rgba(45,36,24,0.05))]" />
                     <Image
                       src={candlePhoto}
                       alt="Vela aromática artesanal ALVEA"
                       priority
-                      className="h-[24rem] w-full object-cover object-center sm:h-[32rem]"
+                      quality={100}
+                      sizes="(min-width: 1024px) 32rem, 100vw"
+                      className="h-[24rem] w-full object-cover object-center contrast-[1.03] saturate-[1.05] sm:h-[32rem]"
                     />
                     <div className="absolute inset-x-4 bottom-4 rounded-[1.4rem] border border-white/40 bg-[rgba(255,248,241,0.78)] p-4 shadow-[0_20px_40px_rgba(71,50,23,0.18)] backdrop-blur">
                       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-[#8d6d2c]">
@@ -317,21 +326,23 @@ export function LandingPage() {
             description="Escolha uma vela que vai além da fragrância e entrega presença, acabamento e significado."
           />
 
-          <div className="mt-8 space-y-4">
+          <div className="premium-card mt-8 overflow-hidden rounded-[2rem] divide-y divide-white/50">
             {comparisonRows.map((row) => (
               <article
                 key={row.label}
-                className="premium-card grid gap-3 rounded-[1.8rem] p-4 sm:p-5 lg:grid-cols-[160px_1fr_1fr] lg:items-center"
+                className="grid gap-3 px-4 py-4 sm:px-5 sm:py-5 lg:grid-cols-[160px_minmax(0,1fr)] lg:items-center"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#8d6d2c]">
                   {row.label}
                 </p>
-                <ComparisonValue tone="negative" title="Velas comuns">
-                  {row.common}
-                </ComparisonValue>
-                <ComparisonValue tone="positive" title="ALVEA">
-                  {row.alvea}
-                </ComparisonValue>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <ComparisonValue tone="negative" title="Velas comuns">
+                    {row.common}
+                  </ComparisonValue>
+                  <ComparisonValue tone="positive" title="ALVEA">
+                    {row.alvea}
+                  </ComparisonValue>
+                </div>
               </article>
             ))}
           </div>
@@ -471,6 +482,16 @@ export function LandingPage() {
       <section className="relative z-10 pb-16 pt-6 sm:pb-24">
         <div className={containerClass}>
           <div className="premium-card-dark relative overflow-hidden rounded-[2.2rem] px-5 py-10 text-[#f8f1e8] sm:px-8 sm:py-12 lg:px-12">
+            <div aria-hidden="true" className="absolute inset-0">
+              <Image
+                src={finalBackground}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover object-[58%_center] opacity-[0.88] saturate-[1.05] sm:object-center sm:opacity-[0.72]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,13,0.26)_0%,rgba(26,20,13,0.34)_28%,rgba(26,20,13,0.58)_100%)] sm:bg-[linear-gradient(135deg,rgba(26,20,13,0.38)_0%,rgba(26,20,13,0.26)_36%,rgba(26,20,13,0.56)_100%)]" />
+            </div>
             <div className="absolute left-[-4rem] top-[-5rem] h-48 w-48 rounded-full bg-[#d8a75b]/20 blur-3xl" />
             <div className="absolute bottom-[-3rem] right-[-2rem] h-56 w-56 rounded-full bg-[#4f3921]/55 blur-3xl" />
 
@@ -547,7 +568,7 @@ function ComparisonValue({
       : "bg-[#f5ebe0] text-[#6d5541]";
 
   return (
-    <div className={`rounded-[1.3rem] px-4 py-4 ${toneClass}`}>
+    <div className={`h-full rounded-[1.3rem] px-4 py-4 ${toneClass}`}>
       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em]">
         {title}
       </p>
