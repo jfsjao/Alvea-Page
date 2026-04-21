@@ -1,8 +1,10 @@
-# 🕯️ ALVEA — Landing Page Copy (README)
+# 🕯️ ALVEA — Landing Page
 
 ## 📌 Visão Geral
 
-Este documento contém a estrutura completa de copy para a landing page da **ALVEA**, marca de velas aromáticas artesanais premium feitas com cera de abelha.
+Este documento contém a estrutura da landing page da **ALVEA**, marca de velas aromáticas artesanais premium feitas com cera de abelha.
+  
+  https://alvea-page.onrender.com/
 
 O objetivo da página é:
 
